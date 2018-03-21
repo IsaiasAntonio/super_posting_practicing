@@ -1,0 +1,8 @@
+%p
+  %strong Title:
+  =@post.title
+%p
+  %strong Text:
+  =@post.text
+=link_to 'Edit', edit_post_path(@post)
+=link_to 'Back to index', posts_path 
