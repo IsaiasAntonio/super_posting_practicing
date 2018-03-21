@@ -5,12 +5,13 @@
     .card
       .card-header
         h5 Edit Post
+        .card-body
           .form-group
             label Title:
             input.form-control(type='text', v-model='post.title')
           .form-group
             label Text:
-            input.form-control(type='text', v-model='post.text')
+            textarea.form-control(type='text', v-model='post.text')
       .card-footer
         .row
           .col-sm

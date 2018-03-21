@@ -5,19 +5,20 @@
     .card
       .card-header
         h5 Add a new Post
-        .form-group
-          label Title:
-          input.form-control(type='text', v-model='post.title')
-        .form-group
-          label Text:
-          input.form-control(type='text', v-model='post.text')
-      .card-footer
-        .row
-          .col-sm
-            button.btn.btn-outline-primary(@click='addPost()') Submit
-          .col-sm
-          .col-sm
-            router-link.btn.btn-outline-success(to='/', id='backButton') Back
+        .card-body
+          .form-group
+            label Title:
+            input.form-control(type='text',name="title", v-model='post.title')
+          .form-group
+            label Text:
+            textarea.form-control(type='text', name="text", v-model='post.text')
+        .card-footer
+          .row
+            .col-sm
+              button.btn.btn-outline-primary(@click='addPost()') Submit
+            .col-sm
+            .col-sm
+              router-link.btn.btn-outline-success(to='/', id='backButton') Back
 </template>
 
 <script>

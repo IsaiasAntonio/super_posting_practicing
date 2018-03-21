@@ -3,18 +3,22 @@
   br
   .col-xs-10.offset-xs-a.col-md-4.offset-md-4
     .card
-      .card-header
-        .card-tite Post:
-          .card-subtitle {{post.title}}
-          .card-text {{post.text}}
-      .card-footer
-        .row
-          .col-sm
-            router-link.btn.btn-outline-primary(:to='"/edit/"+post.id') Edit
-          .col-sm
-            button.btn.btn-outline-danger(@click='deletePost(post.id)') Delete
-          .col-sm
-            router-link.btn.btn-outline-success(to='/') Back
+      .card-header Post
+        br
+        .card-body
+          .card-tite Title:
+            .card-text {{post.title}}
+            br
+          .card-title Content:
+            .card-text {{post.text}}
+        .card-footer
+          .row
+            .col-sm
+              router-link.btn.btn-outline-primary(:to='"/edit/"+post.id') Edit
+            .col-sm
+              button.btn.btn-outline-danger(@click='deletePost(post.id)') Delete
+            .col-sm
+              router-link.btn.btn-outline-success(to='/') Back
 </template>
 
  <script>
