@@ -57,12 +57,4 @@ import axios from 'axios'
 </script>                                                                   
                                                                              
 <style scoped>                                                              
-table{
-  text-align: center;
-}
-
-#wrapper{
-  min-height: 100%;
-  margin-bottom: -50px;
-}
 </style> 

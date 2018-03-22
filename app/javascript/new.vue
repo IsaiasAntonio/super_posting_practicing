@@ -51,12 +51,4 @@ import axios from 'axios'
 </script>
 
 <style scoped>
-#wrapper{
-  min-height: 100%;
-  margin-bottom: -50px;
-}
-
-#push{
-  height: 50px;
-}
 </style> 
