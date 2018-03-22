@@ -2,7 +2,7 @@
 .container(id='wrapper')
   br
   h1 Listing Posts
-  table.table
+  table.table.border.border-dark.rounded
     thead
       colgroup(span="2")
       tr.table-dark

@@ -8,10 +8,10 @@
         .card-body
           .form-group
             label Title:
-            input.form-control(type='text', v-model='post.title')
+            input.form-control(type='text', placeholder='New Title', v-model='post.title')
           .form-group
             label Text:
-            textarea.form-control(type='text', v-model='post.text')
+            textarea.form-control(type='text', placeholder='New Text', v-model='post.text')
       .card-footer
         .row
           .col-sm

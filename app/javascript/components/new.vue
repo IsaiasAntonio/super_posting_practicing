@@ -1,5 +1,5 @@
 <template lang="pug">
-.container(id='wrapper')
+.container
   br
   .col-xs-10.offset-xs-1.col-md-4.offset-md-4
     .card
@@ -7,6 +7,7 @@
         h5 Add a new Post
         .card-body
           p(v-if='errors.length')
+            p
             ul(v-for='field, key in errors')
               li.badge.badge-pill.badge-danger(v-for='error in field') {{ key }} {{ error }}
           .form-group
@@ -15,7 +16,7 @@
           .form-group
             label Text:
             textarea.form-control(type='text', name='text', placeholder='Get some help', v-model='post.text')
-        .card-footer(id='push')
+        .card-footer
           .row
             .col-sm
               button.btn.btn-outline-primary(@click.prevent='addPost()') Submit

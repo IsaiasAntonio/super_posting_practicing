@@ -13,7 +13,6 @@ footer.bg-dark
 </template>
 <script>
 export default{
-
 }
 </script>
 <style>
