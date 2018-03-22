@@ -1,5 +1,5 @@
 <template lang="pug">                                                       
-.container
+.container(id='wrapper')
   br
   h1 Listing Posts
   table.table
@@ -24,7 +24,7 @@
   router-link.btn.btn-outline-success.btn-lg(to='/new') Add New Post
 </template>                                            
 
- <script>
+<script>
 import axios from 'axios'
  export default { 
    data: function () {
@@ -54,10 +54,15 @@ import axios from 'axios'
     this.getPosts()
    }
  }                                                                           
- </script>                                                                   
+</script>                                                                   
                                                                              
- <style scoped>                                                              
+<style scoped>                                                              
 table{
   text-align: center;
 }
- </style> 
+
+#wrapper{
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+</style> 

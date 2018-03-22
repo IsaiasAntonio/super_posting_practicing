@@ -14,11 +14,7 @@ module V1
 
     def create
       @post = Post.new(post_params)
-      if @post.save
-        redirect_to @post
-      else
-        render 'new'
-      end
+      save_post
     end
 
     def update
@@ -26,6 +22,15 @@ module V1
     end
 
     private
+    def save_post
+      @post.assign_attributes(post_params)
+      if @post.save
+        render 'show'
+      else
+        render(json: @post.errors, status: 400)
+      end
+    end
+
     def post_params
       params.require(:post).permit(:title, :text)
     end
