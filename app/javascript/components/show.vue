@@ -6,11 +6,16 @@
       .card-header Post
         br
         .card-body
-          .card-tite Title:
-            .card-text {{post.title}}
-            br
-          .card-title Content:
-            .card-text {{post.text}}
+          .card
+            .card-body
+              .card-tite Title:
+                .card-text {{post.title}}
+                br
+          .card
+            .card-body
+              .card-title Content:
+                .card-body
+                .card-text {{post.text}}
         .card-footer
           .row
             .col-sm
