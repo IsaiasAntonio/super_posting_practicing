@@ -27,6 +27,8 @@
 
 <script>
 import axios from 'axios'
+import { post } from '../configure/post'
+
  export default { 
    data: function () {
      return {
@@ -39,7 +41,7 @@ import axios from 'axios'
    },
     methods:{
       addPost(){
-        axios.post('/v1/posts.json', this.post)
+        post.add(this.post)
           .then(response =>{
             this.$router.push({path: '/'});
           })
@@ -48,7 +50,7 @@ import axios from 'axios'
           })
       }
     }
- }                                                                           
+ }
 </script>
 
 <style scoped>

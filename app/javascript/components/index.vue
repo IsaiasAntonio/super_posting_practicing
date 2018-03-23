@@ -26,6 +26,8 @@
 
 <script>
 import axios from 'axios'
+import { post } from '../configure/post'
+
  export default { 
    data: function () {
      return {
@@ -35,15 +37,15 @@ import axios from 'axios'
    },
    methods: {
       deletePost(post_id){
-        axios.delete('/v1/posts/'+post_id+'.json')
+        post.destroy(post_id)
           .then(response =>{
             this.getPosts()
           })
       },
      getPosts(){
-       axios.get('/v1/posts.json')
+       post.all()
          .then(response =>{
-           this.posts = response.data 
+           this.posts = response 
          })
          .catch(e =>{
            this.errors.push(e)
@@ -53,8 +55,7 @@ import axios from 'axios'
    created(){
     this.getPosts()
    }
- }                                                                           
-</script>                                                                   
-                                                                             
-<style scoped>                                                              
+ }
+</script>
+<style scoped>
 </style> 

@@ -28,6 +28,8 @@
 
  <script>
 import axios from 'axios'
+import { post } from '../configure/post'
+
  export default { 
    data: function () {
      return {
@@ -37,16 +39,16 @@ import axios from 'axios'
    },
    methods:{
      deletePost(post_id){
-       axios.delete('/v1/posts/'+post_id+'.json')
+       post.destroy(post_id)
          .then(response =>{
            this.getPost()
            this.$router.push({path: '/'});
         })
       },
-     getPost(){
-       axios.get('/v1/posts/'+this.$route.params.id+'.json')
+     getPost(post_id){
+       post.read(post_id)
          .then(response =>{
-           this.post = response.data 
+           this.post = response
          })
          .catch(e =>{
            this.errors.push(e)
@@ -54,7 +56,7 @@ import axios from 'axios'
      }
    },
    created(){
-     this.getPost()
+     this.getPost(this.$route.params.id)
    }
  }                                                                           
  </script>

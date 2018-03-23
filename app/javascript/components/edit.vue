@@ -24,6 +24,8 @@
 
 <script>
 import axios from 'axios'
+import { post } from '../configure/post'
+
  export default { 
    data: function () {
      return {
@@ -35,34 +37,33 @@ import axios from 'axios'
      } 
    },
     methods:{
-      getPost(){
-        axios.get('/v1/posts/'+this.$route.params.id+'.json')
+      getPost(post_id){
+        post.read(post_id)
           .then(response =>{
-            this.post = response.data
+            this.post = response
           })
           .catch(e =>{
             this.errors.push(e)
           })
       },
       deletePost(post_id){
-        axios.delete('/v1/posts/'+post_id+'.json')
+        post.destroy(post_id)
           .then(response =>{
             this.getPost()
             this.$router.push({path: '/'})
           })
       },
       updatePost(){
-        axios.patch('/v1/posts/'+this.$route.params.id+'.json', this.post)
+        post.update(this.$route.params.id, this.post)
           .then(response =>{
             this.$router.push({path: '/'});
           })
       }
     },
    created(){
-    this.getPost()
+    this.getPost(this.$route.params.id)
    }
- }                                                                           
+ }
 </script>
-
 <style scoped>
 </style>
