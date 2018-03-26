@@ -52,6 +52,3 @@ import { post } from '../configure/post'
     }
  }
 </script>
-
-<style scoped>
-</style> 

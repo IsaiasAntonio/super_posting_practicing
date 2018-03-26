@@ -1,6 +1,5 @@
 module V1
-  class ApplicationController < ActionController::API
-
+  class AuthenticationController < ApplicationController
     def aunthenticate_user
       user = User.find_by(email: params[:email])
       if user && user.authenticate(params[:email])
@@ -19,6 +18,5 @@ module V1
         user: {id: user.id, email: user.email}
       }
     end
-
   end
 end

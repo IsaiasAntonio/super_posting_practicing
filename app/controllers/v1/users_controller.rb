@@ -30,6 +30,10 @@ module V1
       params.require(:user).permit(:email, :password)
     end
 
+    def user_credentials
+      params.require(:user).permit(:email, :password)
+    end
+
     def save_user
       @user.assign_attributes(user_params)
       if @user.save

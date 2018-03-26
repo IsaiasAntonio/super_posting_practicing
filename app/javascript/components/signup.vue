@@ -23,8 +23,17 @@
 </template>
 <script>
 import axios from 'axios'
+import { user } from '../configure/user'
 
+export default{
+  data: function (){
+    return {
+      user:{
+        email: '',
+        password: '',
+      },
+      errors: {}
+    }
+  } 
+}
 </script>
-
-<style scoped>
-</style>
