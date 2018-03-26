@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   namespace :v1 do
     resources :posts
+    post '/signup', to: 'users#create'
+    post '/signin', to: 'users#signin'
   end
 
-  get '*/posts', to: 'post#index'
+  get '/*path', to: 'posts#index'
 end

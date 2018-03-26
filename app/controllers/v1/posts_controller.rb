@@ -5,8 +5,7 @@ module V1
       @posts = Post.all
     end
 
-    def show
-    end
+    def show; end
 
     def destroy
       @post.destroy
@@ -18,10 +17,11 @@ module V1
     end
 
     def update
-      render 'show' if @post.update(post_params) 
+      render 'show' if @post.update(post_params)
     end
 
     private
+
     def save_post
       @post.assign_attributes(post_params)
       if @post.save
