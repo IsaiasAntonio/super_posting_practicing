@@ -12,9 +12,9 @@ module V1
     private
 
     def payload(user)
-      return  nil unless user and user.id
+      return nil unless user and user.id
       {
-        auth_token: JsonWebToken.encode({user_id: uder.id}),
+        auth_token: JsonWebToken.encode({ user_id: uder.id }),
         user: {id: user.id, email: user.email}
       }
     end

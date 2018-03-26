@@ -17,7 +17,7 @@ module V1
     def signin; end
 
     def destroy
-      session[:user_id] = nil
+      @user.destroy
     end
 
     def update
