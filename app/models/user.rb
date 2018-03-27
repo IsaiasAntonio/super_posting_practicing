@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :post
+  has_many :post, dependent: :destroy
   validates :email, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: [:create, :update] }
 
   def self.signin(credentials)

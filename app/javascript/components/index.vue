@@ -43,7 +43,7 @@ import { post } from '../configure/post'
           })
       },
      getPosts(){
-       post.findByUser()
+       post.all()
          .then(response =>{
            this.posts = response 
          })

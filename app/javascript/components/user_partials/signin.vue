@@ -16,13 +16,14 @@
         .card-footer
           .row
             .col-sm
-              button.btn.btn-outline-primary(@click='getSession()') Submit
+              button.btn.btn-outline-primary(@click='getSession') Submit
             .col-sm
               router-link.btn.btn-outline-danger(to='/signup') Sign Up
             .col-sm
               router-link.btn.btn-outline-success(to='/') Back
 </template>
 <script>
+import axios from 'axios'
 import { user } from '../../configure/user'
 
 export default{
