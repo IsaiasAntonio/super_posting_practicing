@@ -5,22 +5,34 @@ const user = (function(){
   let format = '.json';
   
   function create(user_params){
-    return call_user(url + format, 'post', user_params);
+    return callUser(url + format, 'post', user_params);
   }
 
   function all(){
-    return call_user(url + format, 'get', {});
+    return callUser(url + format, 'get', {});
   }
 
   function read(user_id){
-    return call_user(get_id(user_id), 'get', {});
+    return callUser(getId(user_id), 'get', {});
   }
 
-  function delete(user_id){
-    return call_user(get_id(user_id))
+  function destroy(user_id){
+    return callUser(getId(user_id), 'delete', {});
   }
 
-  function call_user(url, method, data){
+  function update(user_id, user_params){
+    return callUser(getId(user_id), 'patch', user_params)
+  }
+
+  function signUp(credentials){
+    return callUser('/v1/signup', 'post', credentials)
+  }
+
+  function signIn(user){
+    return callUser('/v1/signin', 'post', user)
+  }
+
+  function callUser(url, method, data){
     return new Promise((resolve, reject) => {
       axios({url, method, data})
       .then(response => {
@@ -32,16 +44,19 @@ const user = (function(){
     });
   }
 
-  function get_id(user_id = null){
+  function getId(user_id = null){
     let id = url + '/' + user_id + format;
     return id
   }
 
   return{
-    add,
+    create,
     all,
     read,
-    read
+    destroy,
+    update,
+    signUp,
+    signIn
   };
 
 }());

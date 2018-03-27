@@ -5,26 +5,30 @@ const post = (function(){
   let format = '.json';
 
   function update(post_id, post_params){
-    return call_post(get_id(post_id), 'patch', post_params);
+    return callPost(getId(post_id), 'patch', post_params);
   }
 
   function add(post_params){
-    return call_post(url + format, 'post', post_params);
+    return callPost(url + format, 'post', post_params);
   }
 
   function read(post_id){
-    return call_post(get_id(post_id), 'get', {});
+    return callPost(getId(post_id), 'get', {});
   }
 
   function destroy(post_id){
-   return call_post(get_id(post_id), 'delete', {});
+   return callPost(getId(post_id), 'delete', {});
   }
 
   function all(){
-    return call_post(url + format, 'get', {});
+    return callPost(url + format, 'get', {});
   }
 
-  function call_post(url, method, data){
+  function findByUser(user_id){
+    return callPost(url + format, 'get', {});
+  }
+
+  function callPost(url, method, data){
     return new Promise((resolve, reject) => {
       axios({url, method, data})
       .then(response => {
@@ -36,7 +40,7 @@ const post = (function(){
     });
   }
 
-  function get_id(post_id = null){
+  function getId(post_id = null){
     let id = url + '/' + post_id + format;
     return id;
   }

@@ -25,11 +25,11 @@
               button.btn.btn-outline-primary(@click='createUser()') Submit
             .col-sm
             .col-sm
-              router-link.btn.btn-outline-success(to='/', id='backButton') Back
+              router-link.btn.btn-outline-success(to='/') Back
 </template>
 <script>
 import axios from 'axios'
-import { user } from '../configure/user'
+import { user } from '../../configure/user'
 
 export default{
   data: function (){
@@ -45,8 +45,9 @@ export default{
   },
   methods:{
     createUser(){
-      user.add(this.user)
+      user.signUp(this.user)
         .then(response =>{
+          this.$store.commit('user', response)
           this.$router.push({path: '/'});
         })
         .catch(e =>{

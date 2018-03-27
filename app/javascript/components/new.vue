@@ -22,7 +22,7 @@
               button.btn.btn-outline-primary(@click.prevent='addPost()') Submit
             .col-sm
             .col-sm
-              router-link.btn.btn-outline-success(to='/', id='backButton') Back
+              router-link.btn.btn-outline-success(to='/') Back
 </template>
 
 <script>
