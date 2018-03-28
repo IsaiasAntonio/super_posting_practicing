@@ -16,7 +16,7 @@
         .card-footer
           .row
             .col-sm
-              button.btn.btn-outline-primary(@click='getSession') Submit
+              button.btn.btn-outline-primary(@click='getSession()') Submit
             .col-sm
               router-link.btn.btn-outline-danger(to='/signup') Sign Up
             .col-sm
@@ -41,7 +41,7 @@ export default{
       user.signIn(this.credentials)
         .then(response => {
           this.$store.commit('user', response)
-          this.$router.push({path: '/posts'})
+          this.$router.push({path: '/index'})
         })
         .catch(e => {
           this.errors = e.response.data

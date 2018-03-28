@@ -1,9 +1,8 @@
 module V1
-  class UsersController < ApplicationController
-    skip_before_action :verify_authenticity_token
+  class UsersController < V1::ApplicationController
     before_action :find_user, only: %i{show update destroy}
     wrap_parameters include: User.attribute_names + %i[password]
-
+    
     def signup
       @user = User.new
       save_user
@@ -13,11 +12,7 @@ module V1
 
     def signin
       @user = User.signin(user_credentials)
-      if @user
-        render 'show'
-      end
     end
-
 
     def destroy
       session[:user_id] = nil

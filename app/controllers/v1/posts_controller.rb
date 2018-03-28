@@ -1,7 +1,7 @@
 module V1
   class PostsController < V1::ApplicationController
     before_action :find_post, only: %i[show update destroy]
-
+    before_action :authenticate_request!
     def index
       @posts = Post.all
     end

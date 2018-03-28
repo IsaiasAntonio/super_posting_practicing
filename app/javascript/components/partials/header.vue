@@ -7,7 +7,7 @@
         router-link.btn.btn-outline-primary(to='/signin/') Log In
       .nav-item
         router-link.btn.btn-outline-primary(to='/signup/') Sign Up
-      .nav-item(v-if='log')
+      .nav-item
         span.font-weight-bold
 </template>
 <script>
